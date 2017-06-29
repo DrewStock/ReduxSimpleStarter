@@ -16,7 +16,7 @@ const API_KEY = 'AIzaSyDDUSBbL_GcXiiOp7mXSUWAPWmYou1WEB8';
 //Updated version, using ES6 fat arrow function
 const App = () => {
     return (
-        <div>Search
+        <div>
             <SearchBar />
         </div>
     );
