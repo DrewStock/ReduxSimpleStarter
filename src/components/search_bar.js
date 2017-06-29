@@ -8,6 +8,12 @@ import React, { Component } from 'react';
 
 //ES6 class-based component
 class SearchBar extends Component {
+    // Method for initializing state in class-based component
+    constructor(props) {
+        super(props);
+
+        this.state = { term: 'Starting Value'};
+    }
     // render() {
     //     return <input onChange={this.onInputChange} />;
     // }
@@ -19,8 +25,16 @@ class SearchBar extends Component {
 
     // Or, can use fat arrow function as handler for event
     render() {
-        return <input onChange={event => console.log(event.target.value)} />;
+        return (
+            <div>
+                <input
+                    value={this.state.term}
+                    onChange={event => this.setState({ term: event.target.value })}
+                />
+            </div>
+        );
     }
+
 
 
 }
