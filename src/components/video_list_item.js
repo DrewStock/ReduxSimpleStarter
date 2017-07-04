@@ -12,12 +12,12 @@ import React from 'react';
 // }
 
 // ES6 syntax - an alternative to passing 'props' as an argument to the functional component and declaring a variable (i.e. const video = props.video)
-const VideoListItem = ({video}) => {
+const VideoListItem = ({video, onVideoSelect}) => {
     // console.log(video);
     const imageUrl = video.snippet.thumbnails.default.url
 
     return (
-        <li className="list-group-item">
+        <li onClick={() => onVideoSelect(video)} className="list-group-item">
             <div className="video-list media">
                 <div className="media-left">
                     <img src={imageUrl} className="media-object" />
