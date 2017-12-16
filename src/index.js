@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import YTSearch from 'youtube-api-search';
+import _ from 'lodash';
 
 import SearchBar from './components/search_bar';
 import VideoList from './components/video_list';
@@ -37,9 +38,12 @@ class App extends Component {
         // YTSearch({ key : API_KEY, term : 'surfboards'}, function(data) {
         //     this.setState({ videos : data });
         // });
+        this.videoSearch('surfboards');
+    }
 
+    videoSearch(term) {
         // ES6 syntax for keys and values that have equivalent terms
-        YTSearch({ key : API_KEY, term : 'surfboards'}, (videos) => {
+        YTSearch({ key : API_KEY, term : term}, (videos) => {
             this.setState({ 
                 videos: videos,
                 selectedVideo: videos[0]
@@ -47,12 +51,15 @@ class App extends Component {
             console.log(videos);
             // transpiled as this.setState({ videos : videos});
         });
+
     }
 
     render() {
+        const videoSearch = _.debounce((term) => { this.videoSearch(term) }, 300);
+
         return (
             <div>
-                <SearchBar />
+                <SearchBar onSearchTermChange={videoSearch} />
                 <VideoDetail video={this.state.selectedVideo} />
                 <VideoList
                     onVideoSelect={selectedVideo => this.setState({selectedVideo})}
