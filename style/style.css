@@ -4,7 +4,8 @@ body {
 
 .search-bar {
     margin: 20px;
-    text-align: center;
+    width: 25%;
+    border-radius: .25rem;
 }
 
 .search-bar input {
@@ -25,8 +26,11 @@ body {
 
 .list-group-item {
     cursor: pointer;
+    margin: 5px;
+    border-radius: .25rem;
 }
 
 .list-group-item:hover {
     background-color: #eee;
+    border-color: #000;
 }

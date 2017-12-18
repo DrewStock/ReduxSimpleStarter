@@ -1,38 +1,32 @@
-//ES6 syntax, alternative to defining Component as a const (i.e. const Component = React.Component;)
 import React, { Component } from 'react';
 
-//Functional component - a function to call and return JSX, unaware of state or other components
+// Functional component - a function to call and return JSX, unaware of state or other components
 // const SearchBar = () => {
 //     return <input />;
 // };
 
-//ES6 class-based component
+// ES6 Class-based component
 class SearchBar extends Component {
-    // Method for initializing state in class-based component
+    // Initialization of state in a class-based component
     constructor(props) {
         super(props);
 
-        this.state = { term: ''};
+        this.state = { term: '' };
     }
-    // render() {
-    //     return <input onChange={this.onInputChange} />;
-    // }
-
-    // Declared method for event handler
-    // onInputChange(event) {
-    //     console.log(event.target.value);
-    // }
-
-    // Or, can use fat arrow function as handler for event
     render() {
+    //    return <input onChange={this.handleInputChange} />;
+    //    OR
+    //    return <input onChange={event => console.log(event.target.value)} />
+
         return (
-            <div className="search-bar">
-                <input
-                    value={this.state.term}
-                    onChange={event => this.onInputChange( event.target.value)}
-                />
-            </div>
-        );
+        <div> 
+        <input
+            value={this.state.term} 
+            onChange={event => this.onInputChange(event.target.value)}
+            className="search-bar"
+            placeholder="Enter search term"/>
+        </div>
+        )
     }
 
     onInputChange(term) {
@@ -40,6 +34,10 @@ class SearchBar extends Component {
         this.props.onSearchTermChange(term);
     }
 
+    // handleInputChange(event) {
+    //    console.log(event.target.value);
+
+    // }
 }
 
 export default SearchBar;
