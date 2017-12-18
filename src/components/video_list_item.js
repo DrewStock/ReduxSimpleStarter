@@ -3,8 +3,9 @@ import React from 'react';
 // const VideoListItem = (props) => {
 //     const video = props.video;
 //     const onVideoSelect = props.onVideoSelect;
+// };
 // OR
-
+// ES6 syntax - an alternative to passing 'props' as an argument to the functional component and declaring a variable (i.e. const video = props.video)
 const VideoListItem = ({video, onVideoSelect}) => {
     
     const imageUrl = video.snippet.thumbnails.default.url;
@@ -22,6 +23,6 @@ const VideoListItem = ({video, onVideoSelect}) => {
             </div>
         </li>
     );
-}
+};
 
 export default VideoListItem;

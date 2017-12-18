@@ -31,7 +31,7 @@ class App extends Component {
         super(props);
 
         this.state = { 
-            videos : [],
+            videos: [],
             selectedVideo: null
          };
 
@@ -42,7 +42,7 @@ class App extends Component {
     }
 
     videoSearch(term) {
-        // ES6 syntax for keys and values that have equivalent terms
+        //ES6 feature - when the references to the key:value pair in the object being passed to this.setState are identical ( 'key'videos: 'value'videos ), the pair can be abbreviated to one string
         YTSearch({ key : API_KEY, term : term}, (videos) => {
             this.setState({ 
                 videos: videos,
@@ -51,7 +51,6 @@ class App extends Component {
             console.log(videos);
             // transpiled as this.setState({ videos : videos});
         });
-
     }
 
     render() {

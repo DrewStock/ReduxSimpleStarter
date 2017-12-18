@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-// Functional component
+// Functional component - a function to call and return JSX, unaware of state or other components
 // const SearchBar = () => {
 //     return <input />;
 // };
 
-// Class-based component
+// ES6 Class-based component
 class SearchBar extends Component {
-    // initialization of state in a class-based component
+    // Initialization of state in a class-based component
     constructor(props) {
         super(props);
 
@@ -21,10 +21,10 @@ class SearchBar extends Component {
         return (
         <div> 
         <input
-        value={this.state.term} 
-        onChange={event => this.onInputChange(event.target.value)}
-        className="search-bar"
-        placeholder="Enter search term"/>
+            value={this.state.term} 
+            onChange={event => this.onInputChange(event.target.value)}
+            className="search-bar"
+            placeholder="Enter search term"/>
         </div>
         )
     }
