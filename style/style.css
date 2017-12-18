@@ -4,7 +4,8 @@ body {
 
 .search-bar {
     margin: 20px;
-    text-align: center;
+    width: 25%;
+    border-radius: .25rem;
 }
 
 .search-bar input {
